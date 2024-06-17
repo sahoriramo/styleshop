@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cálculo del Factorial</title>
+    <script>
+        function calcularFactorial() 
+        {
+            var numero = parseInt(document.getElementById("numero").value);
+            var factorial = 1;
+            var descomposicion = "";
+
+            if (isNaN(numero) || numero < 0) 
+            {
+                document.getElementById("resultado").value = "Ingresa un número entero positivo";
+            } else {
+                descomposicion = numero + " = ";
+                for (var i = 1; i <= numero; i++) 
+                {
+                    factorial *= i;
+                    descomposicion += i;
+                    if (i < numero) 
+                    {
+                        descomposicion += " x ";
+                    }
+                }
+                document.getElementById("resultado").value = "El factorial de " + numero + " es: " + factorial + "\nDescomposición: " + descomposicion;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Cálculo del Factorial</h1>
+    <label for="numero">Ingresa un número entero positivo:</label>
+    <input type="number" id="numero" min="0">
+    <button onclick="calcularFactorial()">Calcular Factorial</button>
+    <br><br>
+    <label for="resultado">Resultado:</label>
+    <textarea id="resultado" rows="4" readonly></textarea>
+</body>
+</html>
